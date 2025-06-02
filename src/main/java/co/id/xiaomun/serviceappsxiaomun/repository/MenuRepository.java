@@ -12,10 +12,14 @@ import co.id.xiaomun.serviceappsxiaomun.entity.menu.MenuItem;
 @Repository
 public interface MenuRepository extends JpaRepository<MenuItem, Long> {
 
-      @Query("SELECT m FROM MenuItem m " +
-                  "WHERE (:categoryName IS NULL OR m.category.name = :categoryName) " +
-                  "AND (:keyword IS NULL OR LOWER(m.name) LIKE LOWER(CONCAT('%', :keyword, '%')))")
-      List<MenuItem> findByCategoryNameAndNameContainingIgnoreCase(@Param("categoryName") String categoryName,@Param("keyword") String keyword);
+      @Query(value = """
+                      SELECT m.* FROM menu_item m
+                      JOIN menu_category c ON m.category_id = c.id
+                      WHERE (:category IS NULL OR c.name = :category)
+                      AND (:keyword IS NULL OR LOWER(m.name) LIKE CONCAT('%', LOWER(:keyword), '%'))
+                  """, nativeQuery = true)
+      List<MenuItem> findByCategoryNameAndNameContainingIgnoreCase(@Param("category") String categoryName,
+                  @Param("keyword") String keyword);
 
       List<MenuItem> findByCategoryId(Long categoryId);
 

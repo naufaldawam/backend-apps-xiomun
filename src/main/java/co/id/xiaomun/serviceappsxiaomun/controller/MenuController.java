@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import co.id.xiaomun.serviceappsxiaomun.constant.LogInfoFormat;
-import co.id.xiaomun.serviceappsxiaomun.model.MenuFilter;
-import co.id.xiaomun.serviceappsxiaomun.model.MenuRequest;
 import co.id.xiaomun.serviceappsxiaomun.model.ResponseMap;
-import co.id.xiaomun.serviceappsxiaomun.service.MenuService;
+import co.id.xiaomun.serviceappsxiaomun.model.menuModel.MenuFilter;
+import co.id.xiaomun.serviceappsxiaomun.model.menuModel.MenuRequest;
+import co.id.xiaomun.serviceappsxiaomun.service.menuService.MenuService;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -80,6 +80,24 @@ public class MenuController {
 
         }
 
+    }
+
+    @PostMapping("/getOfferingMenu")
+    public ResponseEntity<ResponseMap> getOfferingMenu(@RequestBody MenuRequest request) throws Exception {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ResponseMap response = menuService.getOffering(request);
+
+        if (response.getResponseCode().equals("00")) {
+            String log = logInfoFormat.setLogInfo("Access get offering",
+                    objectMapper.writeValueAsString(request),
+                    objectMapper.writeValueAsString(response), "/getOfferingMenu", "", "");
+
+            System.out.println(log);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+
+        }
     }
 
 }

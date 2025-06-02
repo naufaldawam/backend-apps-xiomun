@@ -1,4 +1,4 @@
-package co.id.xiaomun.serviceappsxiaomun.service;
+package co.id.xiaomun.serviceappsxiaomun.service.menuService;
 
 import java.util.HashMap;
 import java.util.List;
@@ -9,17 +9,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import co.id.xiaomun.serviceappsxiaomun.entity.menu.MenuItem;
-import co.id.xiaomun.serviceappsxiaomun.model.MenuFilter;
-import co.id.xiaomun.serviceappsxiaomun.model.MenuRequest;
+import co.id.xiaomun.serviceappsxiaomun.entity.menu.Offering;
 import co.id.xiaomun.serviceappsxiaomun.model.ResponseMap;
+import co.id.xiaomun.serviceappsxiaomun.model.menuModel.MenuFilter;
+import co.id.xiaomun.serviceappsxiaomun.model.menuModel.MenuRequest;
 import co.id.xiaomun.serviceappsxiaomun.repository.MenuRepository;
-
+import co.id.xiaomun.serviceappsxiaomun.repository.OfferingRepository;
 
 @Service
-public class MenuService {
+public class MenuServiceImpl implements MenuService {
 
     @Autowired
     private MenuRepository menuRepository;
+
+    @Autowired
+    private OfferingRepository offeringRepository;
 
     public ResponseMap getAllMenu(MenuRequest request) throws Exception {
 
@@ -49,7 +53,6 @@ public class MenuService {
         return response;
     }
 
-
     public ResponseMap getMenuWithFilter(MenuFilter request) {
         ResponseMap response = new ResponseMap();
 
@@ -71,8 +74,12 @@ public class MenuService {
         return response;
     }
 
+     // func get filter menu
+    public List<MenuItem> filterMenuItems(String categoryName, String keyword) {
+        return menuRepository.findByCategoryNameAndNameContainingIgnoreCase(categoryName, keyword);
+    }
 
-    public ResponseMap getMenuPremiumCoffe(MenuRequest request) throws Exception{
+    public ResponseMap getMenuPremiumCoffe(MenuRequest request) throws Exception {
         ResponseMap response = new ResponseMap();
         try {
             List<MenuItem> premiumMenus = menuRepository.findByCategoryId(5L); // kategori Minuman Sultan
@@ -96,8 +103,27 @@ public class MenuService {
         return response;
     }
 
-    // func get filter menu
-    public List<MenuItem> filterMenuItems(String categoryName, String keyword) {
-        return menuRepository.findByCategoryNameAndNameContainingIgnoreCase(categoryName, keyword);
+    public ResponseMap getOffering(MenuRequest request) throws Exception {
+        ResponseMap response = new ResponseMap();
+        try {
+            List<Offering> offeringList = offeringRepository.findAll();
+            Map<String, Object> result = new HashMap<>();
+            result.put("menus", offeringList);
+
+            response.setStatus(true);
+            response.setStatusCode("200");
+            response.setResponseCode("00");
+            response.setResponseMessage("Sukses mengambil data Offering");
+            response.setResult(result);
+
+        } catch (Exception e) {
+            response.setStatus(false);
+            response.setStatusCode("500");
+            response.setResponseCode("99");
+            response.setResponseMessage("Terjadi kesalahan: " + e.getMessage());
+        }
+
+        return response;
     }
+
 }
