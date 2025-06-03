@@ -58,6 +58,32 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- open ai -->
+		<!-- <dependency>
+			<groupId>org.springframework.ai</groupId>
+			<artifactId>spring-ai-starter-model-openai</artifactId>
+			<version>1.0.0</version>
+		</dependency> -->
+
+		<!-- gemini -->
+		<dependency>
+			<groupId>com.google.genai</groupId>
+			<artifactId>google-genai</artifactId>
+			<version>1.2.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.google.ai.client.generativeai/common -->
+		<!-- <dependency>
+			<groupId>com.google.ai.client.generativeai</groupId>
+			<artifactId>common</artifactId>
+			<version>0.10.0</version>
+			<scope>runtime</scope>
+		</dependency> -->
+		<!-- https://mvnrepository.com/artifact/com.google.ai.client.generativeai/generativeai -->
+		<!-- <dependency>
+			<groupId>com.google.ai.client.generativeai</groupId>
+			<artifactId>generativeai</artifactId>
+			<version>0.3.0</version>
+		</dependency> -->
 	</dependencies>
 
 	<build>
