@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class PromptAiServiceImpl implements PromptAiService {
 
-    private final MenuRepository menuRepository;
+    @Autowired
+    private MenuRepository menuRepository;
 
     @Value("${spring.ai.gemini.api-key}")
     private String apiKey;
@@ -29,7 +31,7 @@ public class PromptAiServiceImpl implements PromptAiService {
     private String GEMINI_URL_TEMPLATE;
 
     @Override
-    public ResponseMap askGemini(PromptAiModel request) {
+    public ResponseMap askGemini(PromptAiModel request) throws Exception {
         ResponseMap response = new ResponseMap();
 
         try {
