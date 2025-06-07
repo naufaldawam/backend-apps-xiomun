@@ -9,8 +9,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import co.id.xiaomun.serviceappsxiaomun.constant.LogInfoFormat;
 import co.id.xiaomun.serviceappsxiaomun.model.ResponseMap;
-import co.id.xiaomun.serviceappsxiaomun.model.menuModel.MenuFilter;
-import co.id.xiaomun.serviceappsxiaomun.model.menuModel.MenuRequest;
+import co.id.xiaomun.serviceappsxiaomun.model.request.menuModel.MenuFilter;
+import co.id.xiaomun.serviceappsxiaomun.model.request.menuModel.MenuRequest;
 import co.id.xiaomun.serviceappsxiaomun.service.menuService.MenuService;
 
 import org.springframework.web.bind.annotation.CrossOrigin;

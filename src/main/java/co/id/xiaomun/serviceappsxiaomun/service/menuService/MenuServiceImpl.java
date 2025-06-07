@@ -11,8 +11,8 @@ import org.springframework.stereotype.Service;
 import co.id.xiaomun.serviceappsxiaomun.entity.menu.MenuItem;
 import co.id.xiaomun.serviceappsxiaomun.entity.menu.Offering;
 import co.id.xiaomun.serviceappsxiaomun.model.ResponseMap;
-import co.id.xiaomun.serviceappsxiaomun.model.menuModel.MenuFilter;
-import co.id.xiaomun.serviceappsxiaomun.model.menuModel.MenuRequest;
+import co.id.xiaomun.serviceappsxiaomun.model.request.menuModel.MenuFilter;
+import co.id.xiaomun.serviceappsxiaomun.model.request.menuModel.MenuRequest;
 import co.id.xiaomun.serviceappsxiaomun.repository.MenuRepository;
 import co.id.xiaomun.serviceappsxiaomun.repository.OfferingRepository;
 
@@ -37,6 +37,7 @@ public class MenuServiceImpl implements MenuService {
             map.put("price", menu.getPrice());
             map.put("category", menu.getCategory() != null ? menu.getCategory().getName() : null);
             map.put("description", menu.getDescription());
+            map.put("image",menu.getImageMenu());
             return map;
         }).collect(Collectors.toList());
 

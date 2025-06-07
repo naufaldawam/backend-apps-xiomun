@@ -1,8 +1,8 @@
 package co.id.xiaomun.serviceappsxiaomun.service.menuService;
 
 import co.id.xiaomun.serviceappsxiaomun.model.ResponseMap;
-import co.id.xiaomun.serviceappsxiaomun.model.menuModel.MenuFilter;
-import co.id.xiaomun.serviceappsxiaomun.model.menuModel.MenuRequest;
+import co.id.xiaomun.serviceappsxiaomun.model.request.menuModel.MenuFilter;
+import co.id.xiaomun.serviceappsxiaomun.model.request.menuModel.MenuRequest;
 
 public interface MenuService {
 

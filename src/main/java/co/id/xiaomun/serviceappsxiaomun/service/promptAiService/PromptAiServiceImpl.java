@@ -13,7 +13,7 @@ import org.springframework.web.client.RestTemplate;
 
 import co.id.xiaomun.serviceappsxiaomun.entity.menu.MenuItem;
 import co.id.xiaomun.serviceappsxiaomun.model.ResponseMap;
-import co.id.xiaomun.serviceappsxiaomun.model.promptAiModel.PromptAiModel;
+import co.id.xiaomun.serviceappsxiaomun.model.request.promptAiModel.PromptAiModel;
 import co.id.xiaomun.serviceappsxiaomun.repository.MenuRepository;
 import lombok.RequiredArgsConstructor;
 
@@ -24,10 +24,10 @@ public class PromptAiServiceImpl implements PromptAiService {
     @Autowired
     private MenuRepository menuRepository;
 
-    @Value("${spring.ai.gemini.api-key}")
+    @Value("${gemini.api-key}")
     private String apiKey;
 
-    @Value("${spring.ai.gemini.url}")
+    @Value("${gemini.url-dev}")
     private String GEMINI_URL_TEMPLATE;
 
     @Override

@@ -1,0 +1,52 @@
+{"properties": [
+  {
+    "name": "tripay.merchant-code",
+    "type": "java.lang.String",
+    "description": "A description for 'tripay.merchant-code'"
+  },
+  {
+    "name": "tripay.merchant-name",
+    "type": "java.lang.String",
+    "description": "A description for 'tripay.merchant-name'"
+  },
+  {
+    "name": "tripay.merchant-api-key",
+    "type": "java.lang.String",
+    "description": "A description for 'tripay.merchant-api-key'"
+  },
+  {
+    "name": "tripay.merchant-private-key",
+    "type": "java.lang.String",
+    "description": "A description for 'tripay.merchant-private-key'"
+  },
+  {
+    "name": "tripay.url-dev",
+    "type": "java.lang.String",
+    "description": "A description for 'tripay.url-dev'"
+  },
+  {
+    "name": "tripay.authorization-header",
+    "type": "java.lang.String",
+    "description": "A description for 'tripay.authorization-header'"
+  },
+  {
+    "name": "gemini.api-key",
+    "type": "java.lang.String",
+    "description": "A description for 'gemini.api-key'"
+  },
+  {
+    "name": "gemini.url-dev",
+    "type": "java.lang.String",
+    "description": "A description for 'gemini.url-dev'"
+  },
+  {
+    "name": "gemini.chat.options.model",
+    "type": "java.lang.String",
+    "description": "A description for 'gemini.chat.options.model'"
+  },
+  {
+    "name": "tripay.url-dev-merchant-payment",
+    "type": "java.lang.String",
+    "description": "A description for 'tripay.url-dev-merchant-payment'"
+  }
+]}
