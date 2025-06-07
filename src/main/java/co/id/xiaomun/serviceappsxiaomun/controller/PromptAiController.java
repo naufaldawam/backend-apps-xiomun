@@ -12,7 +12,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import co.id.xiaomun.serviceappsxiaomun.constant.LogInfoFormat;
 import co.id.xiaomun.serviceappsxiaomun.model.ResponseMap;
-import co.id.xiaomun.serviceappsxiaomun.model.promptAiModel.PromptAiModel;
+import co.id.xiaomun.serviceappsxiaomun.model.request.promptAiModel.PromptAiModel;
 import co.id.xiaomun.serviceappsxiaomun.service.promptAiService.PromptAiService;
 
 @RestController

@@ -1,4 +1,4 @@
-package co.id.xiaomun.serviceappsxiaomun.model.paymentModel;
+package co.id.xiaomun.serviceappsxiaomun.model.request.paymentModel;
 
 import lombok.Data;
 

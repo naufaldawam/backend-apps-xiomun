@@ -1,4 +1,4 @@
-package co.id.xiaomun.serviceappsxiaomun.model.promptAiModel;
+package co.id.xiaomun.serviceappsxiaomun.model.request.promptAiModel;
 
 import lombok.Data;
 

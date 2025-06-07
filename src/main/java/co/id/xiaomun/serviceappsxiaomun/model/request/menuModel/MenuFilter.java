@@ -1,4 +1,4 @@
-package co.id.xiaomun.serviceappsxiaomun.model.menuModel;
+package co.id.xiaomun.serviceappsxiaomun.model.request.menuModel;
 
 import lombok.Data;
 
